@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        .primary-btn {
+                @apply py-[6px] px-[20px] rounded-md bg-blue-500 text-white inline border border-2 border-blue-500;
+        }
+        .primary-btn-hover {
+                @apply py-[6px] px-[20px] rounded-md bg-blue-500 text-white cursor-pointer inline border border-2 border-blue-500 duration-300 hover:bg-white hover:text-blue-500 ;
+        }
+        .secondary-btn {
+                @apply py-[6px] px-[20px] rounded-md bg-gray-500 text-white inline;
+        }
+        .danger-btn {
+            @apply py-[6px] px-[20px] rounded-md bg-red-500 text-white cursor-pointer inline border border-2 border-red-500 duration-300 hover:bg-white hover:text-red-500 ;
+        }
+        </style>
+</head>
+
+<body class="bg-gray-100">
+    <header>
+        <nav class="bg-black w-full h-[100px] text-white text-center text-[30px] font-bold pt-[25px]">
+            <a href="index.html" class="hover:animate-pulse">
+                三択クイズ
+            </a>
+        </nav>
+    </header>
+
+    <main class="max-w-[800px] m-auto w-[90%] sm:w-[80%] mt-[50px]
+                text-[30px] border border-black p-10 bg-white">
+        <section id="s-question">
+            <h1 class="text-[40px]">
+                <span class="secondary-btn">問題<span id="question-count"></span></span>
+                <span id="question">
+                    Q. 問題です
+                </span>
+            </h1>
+            <img src="http://unsplash.it/300" alt="問題の画像" id="img" class="mx-auto mt-[30px] md:w-[70%] lg:w-[60%]" />
+
+            <div class="mt-[40px] flex flex-col sm:flex-row sm:justify-center gap-[40px]">
+                <button id="answer" class="primary-btn-hover">
+                    1
+                </button>
+                <button id="answer" class="primary-btn-hover">
+                    2
+                </button>
+                <button id="answer" class="primary-btn-hover">
+                    3
+                </button>
+            </div>
+        </section>
+
+        <section>
+            <div id="pop-correct"
+                class="primary-btn fixed top-[49%] left-[43%] translate-x-[300%] scale-[0] duration-300">
+                正解！
+            </div>
+            <div id="pop-mistake"
+                class="danger-btn fixed top-[49%] left-[43%] translate-x-[300%] scale-[0] duration-300">
+                不正解！
+            </div>
+            <style>
+                .answer {
+                    animation: 1.5s cubic-bezier(0.2, 1.03, 0.77, 0.1) 1 both move-answer;
+                }
+
+                @keyframes move-answer {
+                    0% {
+                        transform: translateX(300%)scale(3);
+                        opacity: 0;
+                    }
+
+                    10% {
+                        opacity: 1;
+                    }
+
+                    90% {
+                        opacity: 1;
+                    }
+
+                    99% {
+                        transform: translateX(-300%)scale(3);
+                        opacity: 0;
+                    }
+
+                    100% {
+                        transform: translateX(-300%)scale(0);
+                        opacity: 0;
+                    }
+                }
+            </style>
+        </section>
+
+        <section id="s-result" class="hidden mt-[50px] mb-[100px]">
+            <div class="flex flex-col sm:flex-row sm:justify-center sm:translate-x-[-30px] gap-[50px] text-[40px]">
+                <div class="mr-[15px]">score: </div>
+                <div class="flex gap-[50px]">
+                    <div id="your-score" class="score">0</div>
+                    <div class="scale-[2] score-dly">/</div>
+                    <div id="sum-score" class="score-dly2">10</div>
+                </div>
+            </div>
+
+            <style>
+                .score {
+                    animation: 1.5s 1 both move-score;
+                }
+
+                .score-dly {
+                    animation: 1.5s 0.5s 1 both move-score;
+                }
+
+                .score-dly2 {
+                    animation: 1.5s 1s 1 both move-score;
+                }
+
+                @keyframes move-score {
+                    0% {
+                        transform: translateY(-300%)scale(0);
+                        opacity: 0;
+                    }
+
+                    100% {
+                        transform: translateY(0%)scale(3);
+                        opacity: 1;
+                    }
+                }
+            </style>
+        </section>
+
+        <section class="flex mt-[50px] flex-col sm:flex-row sm:justify-between">
+            <div id="retry" class="mt-[8px] hidden">
+                <div class="retry primary-btn-hover">
+                    リトライ
+                </div>
+            </div>
+            <div class=""></div>
+            <a href="index.html" class="danger-btn mt-[30px] w-[100px] sm:mt-0">
+                戻る
+            </a>
+            <style>
+                .retry {
+                    animation: 1.5s 2s 1 both move-retry;
+                }
+
+                @keyframes move-retry {
+                    0% {
+                        opacity: 0;
+                    }
+
+                    100% {
+                        opacity: 1;
+                    }
+                }
+            </style>
+        </section>
+
+    </main>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        .primary-btn {
+                    @apply py-[6px] px-[20px] rounded-md bg-blue-500 text-white cursor-pointer inline border border-2 border-blue-500 duration-300 hover:bg-white hover:text-blue-500 ;
+            }
+            .secondary-btn {
+                    @apply py-[6px] px-[20px] rounded-md bg-gray-500 text-white inline;
+            }
+            .danger-btn {
+                @apply py-[6px] px-[20px] rounded-md bg-red-500 text-white cursor-pointer inline border border-2 border-red-500 duration-300 hover:bg-white hover:text-red-500 ;
+            }
+            </style>
+</head>
+
+<body class="bg-gray-100">
+    <header>
+        <nav class="bg-black w-full h-[100px] text-white text-center text-[30px] font-bold pt-[25px]">
+            <a href="" class="hover:animate-pulse">
+                三択クイズ
+            </a>
+        </nav>
+    </header>
+
+    <main class="max-w-[800px] m-auto w-[90%] sm:w-[80%] mt-[50px]
+                text-[30px] border border-black p-10 bg-white">
+        <h1 class="text-[50px] text-center">
+            <a href="question.html" class="primary-btn">
+                スタート
+            </a>
+        </h1>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
